@@ -1,0 +1,19 @@
+name: Test pipeline
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    env:
+      VITEST_SEGFAULT_RETRY: 3
+    name: 'Test'
+    steps:
+      - uses: actions/checkout@v3
+      - run: npm ci
+        shell: bash
+      - run: npm run test:all

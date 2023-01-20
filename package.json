@@ -1,0 +1,27 @@
+{
+  "name": "vitest-aws-sdk-repro",
+  "version": "0.0.1",
+  "description": "",
+  "type": "commonjs",
+  "main": "./src/index.ts",
+  "types": "./src/index.ts",
+  "scripts": {
+    "test:all": "turbo run test"
+  },
+  "license": "NONE",
+  "dependencies": {
+    "@aws-sdk/client-dynamodb": "^3.231.0"
+  },
+  "devDependencies": {
+    "aws-sdk-client-mock": "^2.0.0",
+    "aws-sdk-client-mock-jest": "^2.0.0",
+    "dotenv": "^16.0.1",
+    "esbuild": "^0.14.39",
+    "turbo": "^1.6.3",
+    "typescript": "^4.6.2",
+    "vitest": "^0.27.2"
+  },
+  "workspaces": [
+    "packages/apps/*"
+  ]
+}
