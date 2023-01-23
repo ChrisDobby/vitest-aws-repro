@@ -9,7 +9,6 @@
     "esModuleInterop": true,
     "noImplicitAny": false,
     "declaration": true,
-    "outDir": "./lib",
-    "types": ["vitest/globals", "./src/**/*"]
+    "types": ["vitest/globals"]
   }
 }

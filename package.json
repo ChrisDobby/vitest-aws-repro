@@ -1,25 +1,45 @@
 {
-  "name": "vitest-aws-sdk-repro",
-  "version": "0.0.1",
-  "description": "",
-  "type": "commonjs",
-  "main": "./src/index.ts",
-  "types": "./src/index.ts",
-  "scripts": {
-    "test:all": "turbo run test"
-  },
+  "name": "px-sts",
+  "version": "0.1.0",
   "license": "NONE",
-  "dependencies": {
-    "@aws-sdk/client-dynamodb": "^3.231.0"
+  "scripts": {
+    "lint": "turbo run lint",
+    "lint:es": "eslint . --max-warnings=0 --ignore-path .gitignore",
+    "lint:fix": "eslint . --fix --ignore-path .gitignore",
+    "lint:tf": "terraform fmt -check -recursive terraform",
+    "test": "turbo run test --filter=...[origin/main]",
+    "test:all": "turbo run test",
+    "test:integration": "npm --prefix packages/tests/integration run test:integration",
+    "test:frontend": "npm --prefix packages/tests/frontend run test:frontend",
+    "test:end2end": "npm --prefix packages/tests/end2end run test:end2end",
+    "package:apps": "turbo run package --filter=./packages/apps/*",
+    "types": "turbo run types --filter=...[origin/main]",
+    "types:all": "turbo run types",
+    "proton": "npm run -prefix packages/tools/proton-pack-backend start & npm run -prefix packages/tools/proton-pack-ui start",
+    "monitoring": "npm run -prefix packages/apps/monitoring-ui dev"
   },
+  "private": true,
   "devDependencies": {
+    "@types/node": "^18.11.15",
+    "@types/promise-poller": "^1.7.1",
+    "@typescript-eslint/eslint-plugin": "^5.18.0",
+    "@typescript-eslint/parser": "^5.18.0",
+    "@vitest/coverage-istanbul": "^0.27.3",
     "aws-sdk-client-mock": "^2.0.0",
     "aws-sdk-client-mock-jest": "^2.0.0",
     "dotenv": "^16.0.1",
     "esbuild": "^0.14.39",
+    "eslint": "^8.12.0",
+    "eslint-config-airbnb-base-typescript": "^1.1.0",
+    "eslint-config-prettier": "^8.1.0",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-jest": "^26.2.2",
+    "eslint-plugin-prettier": "^4.0.0",
+    "eslint-plugin-promise": "^6.0.0",
+    "prettier": "^2.5.1",
     "turbo": "^1.6.3",
     "typescript": "^4.6.2",
-    "vitest": "^0.27.2"
+    "vitest": "^0.27.3"
   },
   "workspaces": [
     "packages/apps/*"
